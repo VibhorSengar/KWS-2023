@@ -2,6 +2,18 @@
 
 Here we train the Tsetline Machine Model given at https://github.com/cair/pyTsetlinMachine for Keyword Spotting.
 
+# How to Use
+1. Install the library at https://github.com/cair/pyTsetlinMachine along with the following:
+	- NumPy
+	- MatplotLib
+	- ScikitLearn
+	- ScikitImage
+	- Librosa
+
+2. To prepare the data set with a specific number of classes run the file `make_dataset_melspectro.py` in the `dataset` folder and specify the number of classes needed in the script.
+
+3. To perform the training run the file `train-tsetlin.py` where we can specify the `number_of_classes` needed to train and the `number_of_clauses` per class parameters.
+
 # Dataset
 
 | Parameter                   | Value                |
@@ -27,3 +39,5 @@ For pre-processing, the spectrograms are resized to 28x28 shape and a 50-percent
 |10 				|1000							|49.61	 |
 |10 				|2000							|51.67	 |
 |10    				|4000							|41.39   |
+
+
