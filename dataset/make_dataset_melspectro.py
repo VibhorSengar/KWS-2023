@@ -3,6 +3,7 @@ import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
 from skimage.transform import resize 
+from sklearn.model_selection import train_test_split
 import os
 
 # keyword_dir=['backward', 'bed', 'cat', 'follow', 'forward', 'learn', 'marvin', 'tree', 'visual', 'wow']
@@ -12,7 +13,7 @@ X=[]
 Y=[]
 dir_list.sort()
 #should be less than 10
-num_classes=10
+num_classes=1
 for keyword_idx in range(num_classes):
 	keyword=dir_list[keyword_idx]
 	keyword_path=path+'//'+keyword
@@ -40,14 +41,21 @@ for keyword_idx in range(num_classes):
 		X.append(mel_spectrogram_resized)
 		Y.append(keyword_idx)
 
-Xnpy=np.array(X)
-Ynpy=np.array(Y)
+X=np.array(X)
+X = X.reshape(X.shape[0], -1)
+Y=np.array(Y)
 
-xfile='X_train_'+str(num_classes);
-yfile='Y_train_'+str(num_classes);
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.1, random_state=8)
 
-np.save(xfile, Xnpy)
-np.save(yfile, Ynpy)
+x_train_file_path=os.path.join('split_data_npy', 'subset_'+str(num_classes), 'X_train')
+x_test_file_path=os.path.join('split_data_npy', 'subset_'+str(num_classes), 'X_test')
+y_train_file_path=os.path.join('split_data_npy', 'subset_'+str(num_classes), 'Y_train')
+y_test_file_path=os.path.join('split_data_npy', 'subset_'+str(num_classes), 'Y_test')
+
+np.save(x_train_file_path, X_train)
+np.save(x_test_file_path, X_test)
+np.save(y_train_file_path, Y_train)
+np.save(y_test_file_path, Y_test)
 
 
 # # Load the .wav file

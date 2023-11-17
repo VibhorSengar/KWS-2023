@@ -30,14 +30,14 @@ Here we train the Tsetline Machine Model given at https://github.com/cair/pyTset
 
 For pre-processing, the spectrograms are resized to 28x28 shape and a 50-percentile threshold binarization is done. We run a total of 50 epochs and following are the accuracies for the different values of the parameters
 
-|Number of classes	|Number of clauses per class	|Accuracy|
-|---      			|---							|---	 |
-|4					|1000							|74.35	 |
-|4					|2000							|75.86	 |
-|6					|2000							|56.43	 |
-|6					|4000							|58.45   |
-|10 				|1000							|49.61	 |
-|10 				|2000							|51.67	 |
-|10    				|4000							|41.39   |
+|Number of classes	|Number of clauses per class	|PyTM-MEL|PyTM-MFCC|TMU-MEL|TMU-MFCC|
+|---      			|---							|---	 |---      |---    |---     |
+|4					|500							|75.58	 |         |       |        |
+|4					|1000							|75.72	 |         |       |        |
+|4					|2000							|74.21	 |         |       |        |
+|6					|1000							|62.86	 |         |       |        |
+|6					|2000							|64.11	 |         |       |        |
+|10 				|1000							|54.28   |         |       |        |
+|10 				|2000							|54.67   |         |       |        |
 
 
