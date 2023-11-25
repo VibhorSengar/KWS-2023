@@ -30,6 +30,12 @@ Here we train the Tsetline Machine Model given at https://github.com/cair/pyTset
 
 For pre-processing, the spectrograms are resized to 28x28 shape and a 50-percentile threshold binarization is done. We run a total of 50 epochs and following are the accuracies for the different values of the parameters
 
+TRIAL 1
+For a small dataset with the keywords: 
+['backward', 'bed', 'cat', 'follow']
+['backward', 'bed', 'cat', 'follow', 'forward', 'learn']
+['backward', 'bed', 'cat', 'follow', 'forward', 'learn', 'marvin', 'tree', 'visual', 'wow']
+
 |Number of classes	|Number of clauses per class	|PyTM-MEL|PyTM-MFCC|TMU-MEL|TMU-MFCC|
 |---      			|---							|---	 |---      |---    |---     |
 |4					|500							|75.58	 |         |       |        |
@@ -41,3 +47,21 @@ For pre-processing, the spectrograms are resized to 28x28 shape and a 50-percent
 |10 				|2000							|54.67   |         |       |        |
 
 
+TRIAL 2
+For a bigger dataset with the keywords:
+['yes' , 'no', 'stop', 'seven']
+['yes' , 'no', 'stop', 'seven', 'left', 'right']
+['yes' , 'no', 'stop', 'seven', 'left', 'right', 'up', 'down', 'backward', 'forward']
+
+|Number of classes	|Number of clauses per class	|PyTM-MEL|PyTM-MFCC|TMU-MEL|TMU-MFCC|
+|---      			|---							|---	 |---      |---    |---     |
+|4					|500							|82.41	 |         |       |        |
+|4					|1000							|81.65 	 |         |       |        |
+|4					|2000							|81.53	 |         |       |        |
+|6					|1000							|70.61	 |         |       |        |
+|6					|2000							|70.05	 |         |       |        |
+|10 				|1000							|60.55   |         |       |        |
+|10 				|2000							|57.52   |         |       |        |
+
+
+We can see that we get better accuracy with a larger dataset.
